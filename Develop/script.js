@@ -1,5 +1,6 @@
 // Assignment code here
-
+const upperCaseChar = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+const lowerCaseChar = ["abcdefghijklmnopqrstuvwxyz"];
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
