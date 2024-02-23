@@ -1,26 +1,17 @@
-// Assignment code here
-// 
-// function createRandomUc() {
-//   return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-// }
-
-// function createRandomLc() {
-//   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-// }
-
-// function createRandomInt() {
-//   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-// }
+// Game Plan
+// when the user enters the site, they will be prompted for the criteria of their password. They will be asked if they want lowercase letters, uppercase letters, numbers, and symnbols. If yes, then it will be included in the generated password. If no, then it will be excluded. Once the criteria has been set a function will select random items out of their respective arrays and string them together randomly to to create a secure password.
 
 var lowerCase = ['a','b','c'];
 var upperCase = ['ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
+var numChar = ["1","2","3","4","5","6","7","8","9","10"];
+var symChar = ["~","!","@","#","$","%","^","&","*"]
 
 function generatePassword() {
   var lowerCasePrompt = confirm("Do you want to add lowercase letters?")
   var upperCasePrompt = confirm("Do you want to add uppercase letters?")
 
 if (lowerCasePrompt === true) {
-  // 
+  // if the user clicks on yes, then include lowercase letters into the generated password. 
 }
 
   // var numberPrompt = confirm("Would")
