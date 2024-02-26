@@ -2,19 +2,6 @@
 // when the user enters the site, they will be prompted for the criteria of their password. They will be asked if they want lowercase letters, uppercase letters, numbers, and symnbols. If yes, then it will be included in the generated password. If no, then it will be excluded. Once the criteria has been set a function will select random items out of their respective arrays and string them together randomly to to create a secure password.
 
 
-const genLength = document.getElementById('chosen-length');
-genLength.addEventListener("change", function() {
-  
-  console.log(genLength.value);
-})
-
-
-const randomFunc = {
-  number: grabRandomNumber(),
-  upper: grabRandomUpperCase(),
-  lower: grabRandomLowerCase(),
-  symbol: grabRandomSymbol()
-};
 
 function passCharLength() {
   const charLength = genLength;
@@ -48,24 +35,60 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  // var password = generatePassword();
+  var password = "";
   var passwordText = document.querySelector("#password");
   var lowerCasePrompt = false;
   var upperCasePrompt = false;
   var numberPrompt = false;
   var symbolPrompt = false;
+  var passwordLength = document.querySelector("#chosen-length").value;
+  var askchar = "";
+  var temp = 0;
+  // force user to click at least one option.
   while(!(lowerCasePrompt || upperCasePrompt || numberPrompt || symbolPrompt)) {
     lowerCasePrompt = confirm("Do you want to add lowercase letters?");
     upperCasePrompt = confirm("Do you want to add uppercase letters?");
     numberPrompt = confirm("Do you want to add numbers?");
     symbolPrompt = confirm("Do you want add symbols?");
+
+
+
     if (!(lowerCasePrompt || upperCasePrompt || numberPrompt || symbolPrompt)){
       alert("You must select one option to generate a password.");
     }
   }
-  passwordText.value = password;
-  
+
+
+  for (let i = 0; i < passwordLength; i++) {
+    password = password + grabRandomLowerCase();
+
+    while (askchar == "") {
+      temp = Math.floor(Math.random() + 4);
+
+      if (temp == 0 && lowerCasePrompt) {
+        askchar = grabRandomLowerCase ();
+      }
+
+      if (temp == 1 && upperCasePrompt) {
+        askchar = grabRandomUpperCase();  
+      }
+
+      if (temp == 2 && numberPrompt) {
+        askchar = grabRandomNumber();  
+      }
+
+      if (temp == 3 && symbolPrompt) {
+        askchar = grabRandomSymbol();  
+      }
+
+    }
+
+  }
+
+  passwordText.value = password; 
 }
+
+
 
 
 
