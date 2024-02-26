@@ -1,13 +1,6 @@
 // Game Plan
 // when the user enters the site, they will be prompted for the criteria of their password. They will be asked if they want lowercase letters, uppercase letters, numbers, and symnbols. If yes, then it will be included in the generated password. If no, then it will be excluded. Once the criteria has been set a function will select random items out of their respective arrays and string them together randomly to to create a secure password.
 
-
-
-function passCharLength() {
-  const charLength = genLength;
-  console.log(charLength);
-}
-
 function grabRandomNumber() {
   const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];  
   return numbers[Math.floor(Math.random() * numbers.length)]; 
@@ -58,12 +51,11 @@ function writePassword() {
     }
   }
 
-
+console.log(passwordLength);
   for (let i = 0; i < passwordLength; i++) {
-    password = password + grabRandomLowerCase();
 
     while (askchar == "") {
-      temp = Math.floor(Math.random() + 4);
+      temp = Math.floor(Math.random() * 4);
 
       if (temp == 0 && lowerCasePrompt) {
         askchar = grabRandomLowerCase ();
@@ -80,8 +72,11 @@ function writePassword() {
       if (temp == 3 && symbolPrompt) {
         askchar = grabRandomSymbol();  
       }
-
+      console.log(temp, askchar);
     }
+    password = password + askchar;
+
+    askchar = "";
 
   }
 
